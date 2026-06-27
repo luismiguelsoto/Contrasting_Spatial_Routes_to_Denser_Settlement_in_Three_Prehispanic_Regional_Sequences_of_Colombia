@@ -21,8 +21,7 @@ Repository Structure:
 
 Software and Key Package Versions:
 ----------------------------------
-- R version: [R 4.5.2 (2025-10-31 ucrt)]
-- Platform: Windows 11 x64 (build 26200)
+- R version: 4.5.2
 
 Key R packages used in this project include (versions derived from sessionInfo):
     • boot: version 1.3-32

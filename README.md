@@ -1,7 +1,7 @@
 Signatures of regional integration and models of settlement patterns in the Tairona and Quimbaya chiefdoms (under review)
 --------------------------------------------------------------
 
-This repository contains code and data for a multidimensional spatial analysis framework designed to evaluate regional integration in chiefdom societies. The protocol integrates (1) Area-weighted Kernel Density Estimation (KDE) for nucleation intensity, (2) Approximate Bayesian Computation (ABC) for generative settlement models, (3) Topological Data Analysis (TDA) using persistent homology for spatial complexity, (4) k-NN networks for connectivity analysis, and (5) Random Forest classification. The protocol is applied comparatively to two pre-Hispanic sequences in Colombia: the Tairona tradition (Río Frío) and the Quimbaya tradition (Filandia).
+This repository contains code and data for a multidimensional spatial analysis framework designed to evaluate regional integration in chiefdom societies. The protocol integrates (1) Area-weighted Kernel Density Estimation (KDE) for nucleation intensity, (2) Approximate Bayesian Computation (ABC) for generative settlement models, (3) Topological Data Analysis (TDA) using persistent homology for spatial complexity, (4) k-NN networks for connectivity analysis, and (5) Random Forest classification. The protocol is applied comparatively to three pre-Hispanic sequences in Colombia: the Tairona tradition (Río Frío), Muisca tradition (Bogotá) and the Quimbaya tradition (Filandia).
 
 Repository Structure:
 ----------------------------------

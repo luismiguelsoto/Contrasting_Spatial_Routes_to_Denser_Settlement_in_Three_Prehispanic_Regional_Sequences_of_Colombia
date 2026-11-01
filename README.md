@@ -1,61 +1,65 @@
-Signatures of regional integration and models of settlement patterns in the Tairona and Quimbaya chiefdoms (under review)
+Contrasting Spatial Routes to Denser Settlement in Three Prehispanic Regional Sequences of Colombia (under review)
 --------------------------------------------------------------
 
-This repository contains code and data for a multidimensional spatial analysis framework designed to evaluate regional integration in chiefdom societies. The protocol integrates (1) Area-weighted Kernel Density Estimation (KDE) for nucleation intensity, (2) Approximate Bayesian Computation (ABC) for generative settlement models, (3) Topological Data Analysis (TDA) using persistent homology for spatial complexity, (4) k-NN networks for connectivity analysis, and (5) Random Forest classification. The protocol is applied comparatively to three pre-Hispanic sequences in Colombia: the Tairona tradition (Río Frío), Muisca tradition (Bogotá) and the Quimbaya tradition (Filandia).
+This repository contains code and data for a multidimensional spatial analysis framework designed to compare regional settlement patterns in early complex societies. The protocol integrates (1) area-weighted kernel density estimation for the concentration of occupation, (2) nearest-neighbor statistics and L functions for spacing and clustering, (3) Approximate Bayesian Computation for comparing candidate spatial processes, (4) proximity graphs for connectivity, (5) rank-size coefficients and Cliff's delta for site-size structure, (6) regional population density estimates, and (7) Random Forest classification. Every statistic is judged against patterns simulated with the same number of sites in the same survey area. The protocol is applied comparatively to three pre-Hispanic sequences in Colombia, Río Frío (Sierra Nevada de Santa Marta), Filandia (Middle Cauca), and the Sabana de Bogotá.
 
 Repository Structure:
 ----------------------------------
 1. GIS:
-   - Contains the spatial data files (shapefile components) defining the study areas and settlement distributions. The R code downloads these automatically from this repository:
+   - Contains the spatial data files (shapefile components) defining the survey boundaries and settlement distributions. The R code reads these files from a local copy of this repository:
      • Rio_Frio_Limite_Survey (Survey boundary)
-     • Rio_Frio_Sitios_Neguanje (Periods: Neguanje, Buritaca, Tairona)
+     • Rio_Frio_Sitios_Neguanje, Rio_Frio_Sitios_Buritaca, Rio_Frio_Sitios_Tairona (Periods: Neguanje, Buritaca, Tairona)
      • Filandia_Limite_Survey (Survey boundary)
-     • Filandia_Sitios_Periodo_Temprano (Periods: Early, Middle, Late)
+     • Filandia_Sitios_Periodo_Temprano, Filandia_Sitios_Periodo_Medio, Filandia_Sitios_Periodo_Tardio (Periods: Early, Middle, Late)
+     • Bogota_Limite_Survey (Survey boundary)
+     • Bogota_Sitios_Early_Herrera, Bogota_Sitios_Late_Herrera, Bogota_Sitios_Muisca (Periods: Early Herrera, Late Herrera, Muisca)
+     • Corrected layers of Filandia_Sitios_Periodo_Medio, Filandia_Sitios_Periodo_Tardio, Filandia_Limite_Survey, and Bogota_Limite_Survey, whose file names end in 20261029_094301
+   - All layers use WGS 84 / UTM zone 18N (EPSG 32618). Site layers record each site's identifier (Site_ID) and area in hectares (Size_HA).
+   - The Filandia and Sabana de Bogotá layers derive from Jaramillo et al. (2023) and Boada Rivas (2025) and are also distributed by the Comparative Archaeology Database of the University of Pittsburgh. The Río Frío layers come from the Río Frío Basin Regional Archaeology Program.
 
 2. R Code Files:
-   - The main R script (JAS_RNOTEBOOK_GITHUB_SPRING_2026) contains the code to:
+   - The main R Markdown notebook (AA_SIGNATURES_CHIEFDOMS) contains the code to:
      a) Load required packages and configure the environment.
-     b) Download GIS files directly from GitHub using a raw URL connection.
-     c) Perform spatial metric calculations, TDA, network analysis, and ML classification.
-     d) Generate Figures 2 through 7 and Tables 1 & 2 as presented in the manuscript.
+     b) Read the GIS files and verify their coordinate system, site counts, identifiers, geometry, and containment within each survey boundary.
+     c) Perform the spatial pattern, model comparison, network, site-size, demographic, and classification analyses.
+     d) Generate Figures 2 through 8 and Tables 1 through 3 as presented in the manuscript, each figure followed by a numeric summary of the values it displays.
 
 Software and Key Package Versions:
 ----------------------------------
-- R version: 4.5.2
+- R version: 4.6.1
 
 Key R packages used in this project include (versions derived from sessionInfo):
-    • boot: version 1.3-32
+    • abc: version 2.2.2
     • caret: version 7.0-1
-    • dplyr: version 1.1.4
-    • ggplot2: version 4.0.1
-    • ggpubr: version 0.6.2
-    • ggspatial: version 1.1.10
-    • gridExtra: version 2.3
-    • httr: version 1.4.7
-    • igraph: version 2.2.1
-    • knitr: version 1.50
+    • dplyr: version 1.2.1
+    • future: version 1.75.0
+    • future.apply: version 1.20.2
+    • ggplot2: version 4.0.3
+    • ggspatial: version 1.1.11
+    • igraph: version 2.3.3
+    • knitr: version 1.52
     • patchwork: version 1.3.2
     • randomForest: version 4.7-1.2
-    • rstatix: version 0.7.3
+    • rmarkdown: version 2.32
     • scales: version 1.4.0
-    • sf: version 1.0-22
-    • sp: version 2.2-0
-    • spatstat.explore: version 3.5-3
-    • spatstat.geom: version 3.6-0
-    • spatstat.random: version 3.4-2
-    • TDA: version 1.9.4
-    • tibble: version 3.3.0
+    • sf: version 1.1-3
+    • spatstat.explore: version 3.8-2
+    • spatstat.geom: version 3.8-2
+    • spatstat.model: version 3.7-2
+    • spatstat.random: version 3.5-1
+    • spdep: version 1.4-2
+    • tibble: version 3.3.1
     • tidyr: version 1.3.2
 
 Getting Started:
 ----------------------------------
 1. Clone or download this repository.
-2. Open the main R Markdown file in RStudio.
-3. Ensure that you have an active Internet connection; the code utilizes `httr` to download the shapefile components directly from the GitHub raw directory to a temporary folder.
-4. Run the R script chunks sequentially to reproduce the analysis and generate all figures and tables.
+2. Open AA_SIGNATURES_CHIEFDOMS.Rmd in RStudio.
+3. In the Configuration section, set ROOT_DIR to the local folder of this repository and keep EXPORT_RUN_ID as 20261029_094301. Set FAST_MODE to TRUE for a quick test with fewer simulations.
+4. Render the notebook from the R console with rmarkdown::render("AA_SIGNATURES_CHIEFDOMS.Rmd", envir = globalenv()) to reproduce all figures and tables. Apart from the rendered report, the notebook writes no files, and the figures, tables, and numeric summaries remain in the R session.
 
 Manuscript Summary:
 ----------------------------------
-Chiefdom societies achieved regional integration through diverse organizational pathways that produced distinctive spatial signatures across prehispanic landscapes. This study compares settlement pattern trajectories in two Colombian chiefdom traditions spanning approximately 1800 years of occupation to evaluate how nucleation intensity, generative mechanisms, topological complexity, and network centralization varied independently across parallel chronological sequences. The Tairona tradition in the Sierra Nevada de Santa Marta concentrated populations in nucleated centers occupying defensive positions, while the Quimbaya tradition in the Middle Cauca region maintained dispersed farmstead distributions throughout comparable demographic growth. Despite these contrasting configurations, both traditions exhibited consistently low network centralization, challenging assumptions that population intensification necessarily produces hierarchical settlement structures. Machine learning classification confirmed that spatial signatures distinguish these alternative integration pathways at the individual site level. The results demonstrate that nucleation and network structure represent independent dimensions of regional organization.
+Regional settlement data are often read as evidence that demographic growth brings settlement hierarchy. This study examines that expectation in three full-coverage surveys in Colombia, Río Frío in the Sierra Nevada de Santa Marta, Filandia in the Middle Cauca, and the Sabana de Bogotá, which hold 2,812 site records in nine period layers between about 400 BC and AD 1600. Site density roughly tripled in every sequence, yet the regions diverged. Sites in Río Frío and the Sabana de Bogotá stood closer together than random placement predicts, and Bogotá gathered its occupied area into a few dense foci, whereas spacing in Filandia did not depart from randomness. Rank-size distributions stayed convex in all nine layers, only four of 23 apparent network effects survived changes in graph construction, and none of the candidate point processes passed all four validation checks. Population density grew faster than site density where it could be estimated. These dimensions did not change together in any sequence, consistent with multilineal accounts of complexification.
 
 For questions or further information, please contact: lms313@pitt.edu

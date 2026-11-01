@@ -28,7 +28,7 @@ Software and Key Package Versions:
 ----------------------------------
 - R version: 4.6.1
 
-Key R packages used in this project include (versions derived from sessionInfo):
+Key R packages used in this project include:
     • abc: version 2.2.2
     • caret: version 7.0-1
     • dplyr: version 1.2.1

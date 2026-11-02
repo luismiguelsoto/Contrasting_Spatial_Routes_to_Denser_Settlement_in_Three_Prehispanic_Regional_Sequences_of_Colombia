@@ -15,7 +15,7 @@ Repository Structure:
      • Bogota_Sitios_Early_Herrera, Bogota_Sitios_Late_Herrera, Bogota_Sitios_Muisca (Periods: Early Herrera, Late Herrera, Muisca)
      • Corrected layers of Filandia_Sitios_Periodo_Medio, Filandia_Sitios_Periodo_Tardio, Filandia_Limite_Survey, and Bogota_Limite_Survey, whose file names end in 20261029_094301
    - All layers use WGS 84 / UTM zone 18N (EPSG 32618). Site layers record each site's identifier (Site_ID) and area in hectares (Size_HA).
-   - The Filandia and Sabana de Bogotá layers derive from Jaramillo et al. (2023) and Boada Rivas (2025) and are also distributed by the Comparative Archaeology Database of the University of Pittsburgh. The Río Frío layers come from the Río Frío Basin Regional Archaeology Program.
+   - The Filandia and Sabana de Bogotá layers derive from Jaramillo et al. (2023) and Boada Rivas (2025) and are also distributed by the Comparative Archaeology Database of the University of Pittsburgh. The Río Frío layers come from the Río Frío Basin Regional Archaeology Program (Soto Rodríguez 2026).
 
 2. R Code Files:
    - The main R Markdown notebook (AA_SIGNATURES_CHIEFDOMS) contains the code to:
@@ -53,10 +53,10 @@ Key R packages used in this project include:
 
 Getting Started:
 ----------------------------------
-1. Clone or download this repository.
-2. Open AA_SIGNATURES_CHIEFDOMS.Rmd in RStudio.
-3. In the Configuration section, set ROOT_DIR to the local folder of this repository and keep EXPORT_RUN_ID as 20261029_094301. Set FAST_MODE to TRUE for a quick test with fewer simulations.
-4. Render the notebook from the R console with rmarkdown::render("AA_SIGNATURES_CHIEFDOMS.Rmd", envir = globalenv()) to reproduce all figures and tables. Apart from the rendered report, the notebook writes no files, and the figures, tables, and numeric summaries remain in the R session.
+1. Clone or download this repository, or download only AA_SIGNATURES_CHIEFDOMS.Rmd.
+2. Open AA_SIGNATURES_CHIEFDOMS.Rmd in RStudio. An active Internet connection is required, because the notebook downloads the RData files directly from the RData folder of this repository. To read a local copy instead, set RDATA_DIR in the Configuration section to the path of the local RData folder.
+3. In the Configuration section, set FAST_MODE to TRUE for a quick test with fewer simulations. No other setting needs to be changed.
+4. Render the notebook from the R console with rmarkdown::render("AA_SIGNATURES_CHIEFDOMS.Rmd", envir = globalenv()) to reproduce all figures and tables. Apart from the rendered report and temporary copies of the RData files, which are deleted after reading, the notebook writes no files, and the figures, tables, and numeric summaries remain in the R session.
 
 Manuscript Summary:
 ----------------------------------
